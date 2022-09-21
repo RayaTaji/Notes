@@ -6,23 +6,29 @@ Creating a nav bar in CSS & HTML
 <header>
 <a href="#" class="logo"> LOGO </a>
 <ul>
-<a href="#"><li>Home</li></a>
-<a href="#"><li>About</li></a>
-<a href="#"><li>Contact</li></a>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
 </ul>
 </header>
+
+  *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
 3) Style the header items position ->
 
 header{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-padding 30px 100px;
-display: flex;
-justify-content: space-between;
-align-items: center;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 /*Till here, the logo text would be on the left, and the list items would be on the right*/
 
 }
@@ -30,10 +36,14 @@ align-items: center;
 4) style the logo text in the header (we used.logo because we gave the logo a class in the html file)
 
 header .logo{
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+  text-transform: uppercase;
+letter-spacing: 2px;
 
-font-size, spacing, and all... based on your website's design guidelines 
-
-}
+}/*change according to style guides*/
 
 5) Set the actual ul items position through ->
 (we didnt use .ul because we're not accessing a class, we're accessing the actual ul element, so this applies to any ul we add to the header later on)

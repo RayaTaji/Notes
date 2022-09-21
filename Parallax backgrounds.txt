@@ -1,0 +1,63 @@
+I'll be noting how i created a paralax background and styled it. The idea of it is to stack images that have transparent backgrounds of
+ top of each other and make them move using JS
+
+
+1. create a gradient background 
+body{
+    background: linear-gradient(color1,color2);
+}
+
+2. in html file, create a new element //ofc change images to your own, but this is just for demo
+<section>
+    <img src="Images/stars.png" id="stars">
+    <img src="Images/moon.png" id="moon">
+    <img src="Images/mountains_behind.png" id="mountains_behind">
+    <h2 id="text">Sample Text</h2>
+    <a href="#" id="btn">Explore!</a>
+    <img src="Images/mountains_front.png" id="mountains_front">
+</section>
+
+in css ->
+
+     section {
+            position: relative;
+            max-width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          
+        }
+        section img{ /*sets images on top of each other*/
+            position:absolute;
+            top:0;
+            bottom: 0;
+            max-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
+
+         section img#moon{ /*to make moon blend with screen*/
+            mix-blend-mode: screen;
+        }
+        section img#mountains_front{ /*sets the text behind the mountain_front image since the text has an index smaller than the mountain*/
+            z-index: 10;
+        }
+
+        #text{
+            color:#fff;
+            white-space: nowrap;
+            font-size:7.5vw;
+            z-index:9; /*to create overlapping elements*/
+            transform: translateY(200px); /*move elements vertically (in y axis)*/
+        }
+          #btn{
+            text-decoration: none;
+            display: inline-block;
+            padding:8px 30px;
+            border-radius: 40px;
+            background-color: #fff;
+            color: #2b1055;
+            font-size:1.5em ;
+            z-index: 9;
+        }
